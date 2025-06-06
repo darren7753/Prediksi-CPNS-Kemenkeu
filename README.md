@@ -95,4 +95,4 @@ Aplikasi akan menampilkan:
 
 ---
 
-**© 2024 Prediksi CPNS Kemenkeu - Machine Learning Application** 
+**© 2025 Prediksi CPNS Kemenkeu - Machine Learning Application** 
