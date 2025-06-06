@@ -14,8 +14,8 @@ Aplikasi **Prediksi CPNS Kemenkeu** adalah sistem cerdas yang dapat memprediksi 
 
 Aplikasi menggunakan 5 model AI berbeda untuk memberikan prediksi yang akurat:
 - **SVM** (Support Vector Machine)
-- **Decision Tree** (Pohon Keputusan)
-- **Random Forest** (Hutan Acak)
+- **Decision Tree**
+- **Random Forest**
 - **K-NN** (K-Nearest Neighbors)
 - **Naïve Bayes**
 
@@ -83,57 +83,6 @@ Aplikasi akan menampilkan:
   - **TL**
   - **TH**
   - **TMS-1**
-
----
-
-## 🔧 Mengatasi Masalah
-
-### Problem 1: "Python tidak dikenali" atau "'python' is not recognized"
-**Solusi:**
-- Python belum terinstall dengan benar
-- Ulangi instalasi Python dan pastikan centang "Add Python to PATH"
-- Restart komputer setelah instalasi
-
-### Problem 2: "pip tidak dikenali" atau "'pip' is not recognized"
-**Solusi Windows:**
-- Gunakan `python -m pip install -r requirements.txt` sebagai gantinya
-
-**Solusi Mac:**
-- Gunakan `pip3` instead of `pip`
-
-### Problem 3: Error saat install requirements
-**Solusi:**
-- Pastikan koneksi internet stabil
-- Coba jalankan lagi perintah instalasi
-- Jika masih error, install satu per satu:
-  ```bash
-  pip install streamlit
-  pip install pandas
-  pip install numpy
-  pip install scikit-learn
-  pip install plotly
-  pip install joblib
-  pip install openpyxl
-  pip install imblearn
-  ```
-
-### Problem 4: Browser tidak terbuka otomatis
-**Solusi:**
-- Buka browser manual
-- Ketik `http://localhost:8501` di address bar
-- Pastikan tidak ada aplikasi lain yang menggunakan port 8501
-
-### Problem 5: Aplikasi lambat atau not responding
-**Solusi:**
-- Pastikan komputer memiliki RAM minimal 4GB
-- Tutup aplikasi lain yang tidak perlu
-- Restart aplikasi dengan tekan Ctrl+C di terminal, lalu jalankan ulang
-
-### Problem 6: Model tidak ditemukan
-**Solusi:**
-- Pastikan folder `models` ada di dalam folder aplikasi
-- Pastikan semua file `.joblib` ada di dalam folder `models`
-- Jangan pindahkan atau hapus file apapun dari folder aplikasi
 
 ---
 
