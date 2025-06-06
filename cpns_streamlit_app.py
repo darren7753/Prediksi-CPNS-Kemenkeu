@@ -270,10 +270,10 @@ def main():
             <div class="prediction-card">
                 <h3>👤 {nama}</h3>
                 <div class="data-row">
-                    <div class="data-item">📅 <strong>Umur:</strong> {umur} tahun</div>
-                    <div class="data-item">🎓 <strong>IPK:</strong> {nilai_ipk}</div>
-                    <div class="data-item">📝 <strong>SKD:</strong> {nilai_skd}</div>
-                    <div class="data-item">💼 <strong>SKB:</strong> {nilai_skb}</div>
+                    <div class="data-item">📅 <strong>Umur:</strong> {umur:.0f} tahun</div>
+                    <div class="data-item">🎓 <strong>IPK:</strong> {nilai_ipk:.2f}</div>
+                    <div class="data-item">📝 <strong>SKD:</strong> {nilai_skd:.0f}</div>
+                    <div class="data-item">💼 <strong>SKB:</strong> {nilai_skb:.2f}</div>
                 </div>
             </div>
             """, unsafe_allow_html=True)
@@ -326,6 +326,37 @@ def main():
                 #     for class_name, prob in probs.items():
                 #         if class_name == prediction:
                 #             st.markdown(f"**{class_name}**: {prob:.1%}")
+        
+        st.markdown('<div style="margin: 2rem 0;"></div>', unsafe_allow_html=True)
+        
+        prediction_counts = {}
+        for pred in predictions.values():
+            prediction_counts[pred] = prediction_counts.get(pred, 0) + 1
+        
+        most_common = max(prediction_counts, key=prediction_counts.get)
+        consensus_count = prediction_counts[most_common]
+        
+        st.markdown(f"""
+        <div style="background: linear-gradient(135deg, #4299e1 0%, #3182ce 50%, #2b6cb0 100%); 
+                    color: white; padding: 2rem; border-radius: 20px; margin: 2rem 0;
+                    box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.2);">
+            <div style="text-align: center;">
+                <h3 style="margin: 0 0 1.5rem 0; font-size: 1.5rem; font-weight: 600;">
+                    KESIMPULAN AKHIR
+                </h3>
+                <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: 15px; 
+                           backdrop-filter: blur(10px); margin: 1rem 0;">
+                    <div style="font-size: 1.8rem; font-weight: bold; margin-bottom: 1rem;">
+                        {most_common}
+                    </div>
+                    <div style="font-size: 0.95rem; opacity: 0.9; border-top: 1px solid rgba(255,255,255,0.2); 
+                               padding-top: 1rem;">
+                        Berdasarkan prediksi {consensus_count} dari {len(predictions)} model
+                    </div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main() 
