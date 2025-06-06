@@ -2,7 +2,6 @@ import streamlit as st
 import joblib
 import numpy as np
 import pandas as pd
-import plotly.graph_objects as go
 
 st.set_page_config(
     page_title="Prediksi CPNS Kemenkeu",
@@ -189,30 +188,6 @@ def get_accuracy_badge_class(accuracy):
         return "medium-accuracy"
     else:
         return "low-accuracy"
-
-def create_accuracy_chart(accuracy_scores):
-    """Create a bar chart for model accuracies"""
-    fig = go.Figure(data=[
-        go.Bar(
-            x=list(accuracy_scores.keys()),
-            y=[acc * 100 for acc in accuracy_scores.values()],
-            marker_color=['#48bb78' if acc >= 0.85 else '#ed8936' if acc >= 0.75 else '#f56565' 
-                         for acc in accuracy_scores.values()],
-            text=[f'{acc:.1%}' for acc in accuracy_scores.values()],
-            textposition='auto',
-        )
-    ])
-    
-    fig.update_layout(
-        title="Model Accuracy Comparison",
-        xaxis_title="Models",
-        yaxis_title="Accuracy (%)",
-        showlegend=False,
-        height=400,
-        template="plotly_white"
-    )
-    
-    return fig
 
 def predict_all_models(models, label_encoder, input_data):
     """Make predictions using all models"""
